@@ -1,0 +1,15 @@
+Index: src/main/java/org/example/cement/ResultWriter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package org.example.cement;\r\n\r\nimport java.io.IOException;\r\nimport java.nio.file.Files;\r\nimport java.nio.file.Paths;\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\nimport java.util.Map;\r\n\r\npublic class ResultWriter {\r\n    public void write(String filePath, Map<String, Double> results) throws IOException {\r\n        List<String> lines = new ArrayList<>();\r\n        for (Map.Entry<String, Double> entry : results.entrySet()) {\r\n            String line = entry.getKey() + \" - \" + Math.round(entry.getValue());\r\n            lines.add(line);\r\n        }\r\n        Files.write(Paths.get(filePath), lines);\r\n    }\r\n}\r\n
+===================================================================
+diff --git a/src/main/java/org/example/cement/ResultWriter.java b/src/main/java/org/example/cement/ResultWriter.java
+--- a/src/main/java/org/example/cement/ResultWriter.java	(revision 3e083c2fc6a6920d0480915ae9c6696d3b92b43b)
++++ b/src/main/java/org/example/cement/ResultWriter.java	(date 1794306990110)
+@@ -15,5 +15,6 @@
+             lines.add(line);
+         }
+         Files.write(Paths.get(filePath), lines);
++        double
+     }
+ }
